@@ -1,6 +1,8 @@
 import { ShoppingCart } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useCart } from "@/lib/cart-context";
+import logo from "@/assets/logo.png.asset.json";
+
 
 export function Navbar() {
   const { count, setOpen, pulse } = useCart();
