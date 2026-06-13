@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Plus, Trash2, LogOut } from "lucide-react";
+import { Plus, Trash2, LogOut, Megaphone } from "lucide-react";
 import { useProducts, type Product, type ProductCategory, type ProductUnit } from "@/lib/products-store";
+import { useOfferBanner } from "@/lib/offers-store";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 export const Route = createFileRoute("/admin")({
