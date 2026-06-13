@@ -17,7 +17,7 @@ export function OffersBanner() {
         </svg>
       </div>
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-10 text-center sm:flex-row sm:justify-between sm:text-left">
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center">
           <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/15">
             <Tag className="h-6 w-6" />
           </span>
