@@ -3,6 +3,7 @@ import { CartProvider } from "@/lib/cart-context";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { TrustBar } from "@/components/site/TrustBar";
+import { OffersBanner } from "@/components/site/OffersBanner";
 import { Products } from "@/components/site/Products";
 import { WhyOnline } from "@/components/site/WhyOnline";
 import { Testimonials } from "@/components/site/Testimonials";
@@ -38,6 +39,7 @@ function Index() {
       <main>
         <Hero />
         <TrustBar />
+        <OffersBanner />
         <Products />
         <WhyOnline />
         <Testimonials />
