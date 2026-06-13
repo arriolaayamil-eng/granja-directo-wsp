@@ -18,9 +18,10 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
-        <a href="#top" className="font-display text-xl font-bold text-primary">
-          Granja La Unión
+        <a href="#top" className="flex items-center gap-2" aria-label="Granja La Unión">
+          <img src={logo.url} alt="Granja La Unión" className="h-12 w-auto object-contain sm:h-14" />
         </a>
+
         <nav className="hidden gap-8 text-sm font-medium sm:flex">
           <a href="#productos" className="hover:text-primary">Productos</a>
           <a href="#sucursales" className="hover:text-primary">Sucursales</a>
