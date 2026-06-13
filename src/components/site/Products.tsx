@@ -3,7 +3,7 @@ import { useProducts, type ProductCategory } from "@/lib/products-store";
 import { ProductCard } from "./ProductCard";
 
 type Filter = "Todos" | ProductCategory;
-const FILTERS: Filter[] = ["Todos", "Cortes", "Preparados", "Ofertas"];
+const FILTERS: Filter[] = ["Todos", "Cortes", "Preparados", "Otros", "Ofertas"];
 
 export function Products() {
   const { products } = useProducts();
