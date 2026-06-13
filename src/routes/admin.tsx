@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Plus, Trash2, LogOut } from "lucide-react";
+import { Plus, Trash2, LogOut, Megaphone } from "lucide-react";
 import { useProducts, type Product, type ProductCategory, type ProductUnit } from "@/lib/products-store";
+import { useOfferBanner } from "@/lib/offers-store";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 export const Route = createFileRoute("/admin")({
@@ -106,7 +107,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
       <header className="border-b border-border bg-card">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4">
           <h1 className="font-display text-xl font-bold text-charcoal">
-            Productos — Granja La Unión
+            Panel — Granja La Unión
           </h1>
           <div className="flex gap-2">
             <button
@@ -125,7 +126,8 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
         </div>
       </header>
 
-      <div className="mx-auto max-w-5xl space-y-3 px-4 py-6">
+      <div className="mx-auto max-w-5xl space-y-6 px-4 py-6">
+        <OfferEditor />
         <p className="rounded-lg border border-border bg-card p-3 text-xs text-muted-foreground">
           Los cambios se guardan automáticamente en este dispositivo. Los productos
           inactivos no se muestran en el sitio.
@@ -203,6 +205,62 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function OfferEditor() {
+  const { offer, save } = useOfferBanner();
+
+  return (
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <div className="mb-3 flex items-center gap-2">
+        <Megaphone className="h-5 w-5 text-primary" />
+        <h2 className="font-display text-lg font-bold text-charcoal">Banner de ofertas</h2>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div>
+          <Label>Título</Label>
+          <input
+            value={offer.title}
+            onChange={(e) => save({ ...offer, title: e.target.value })}
+            className={inputCls}
+          />
+        </div>
+        <div>
+          <Label>Subtítulo / descripción</Label>
+          <input
+            value={offer.subtitle}
+            onChange={(e) => save({ ...offer, subtitle: e.target.value })}
+            className={inputCls}
+          />
+        </div>
+        <div>
+          <Label>Texto del botón</Label>
+          <input
+            value={offer.cta}
+            onChange={(e) => save({ ...offer, cta: e.target.value })}
+            className={inputCls}
+          />
+        </div>
+        <div>
+          <Label>Enlace del botón</Label>
+          <input
+            value={offer.ctaTarget}
+            onChange={(e) => save({ ...offer, ctaTarget: e.target.value })}
+            className={inputCls}
+          />
+        </div>
+      </div>
+      <label className="mt-3 inline-flex items-center gap-2 text-sm">
+        <input
+          type="checkbox"
+          checked={offer.active}
+          onChange={(e) => save({ ...offer, active: e.target.checked })}
+          className="h-4 w-4 accent-[color:var(--color-primary)]"
+        />
+        Mostrar banner en el sitio
+      </label>
     </div>
   );
 }
