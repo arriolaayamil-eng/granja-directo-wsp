@@ -107,7 +107,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
       <header className="border-b border-border bg-card">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4">
           <h1 className="font-display text-xl font-bold text-charcoal">
-            Productos — Granja La Unión
+            Panel — Granja La Unión
           </h1>
           <div className="flex gap-2">
             <button
@@ -126,7 +126,8 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
         </div>
       </header>
 
-      <div className="mx-auto max-w-5xl space-y-3 px-4 py-6">
+      <div className="mx-auto max-w-5xl space-y-6 px-4 py-6">
+        <OfferEditor />
         <p className="rounded-lg border border-border bg-card p-3 text-xs text-muted-foreground">
           Los cambios se guardan automáticamente en este dispositivo. Los productos
           inactivos no se muestran en el sitio.
