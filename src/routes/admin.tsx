@@ -209,6 +209,62 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
   );
 }
 
+function OfferEditor() {
+  const { offer, save } = useOfferBanner();
+
+  return (
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <div className="mb-3 flex items-center gap-2">
+        <Megaphone className="h-5 w-5 text-primary" />
+        <h2 className="font-display text-lg font-bold text-charcoal">Banner de ofertas</h2>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div>
+          <Label>Título</Label>
+          <input
+            value={offer.title}
+            onChange={(e) => save({ ...offer, title: e.target.value })}
+            className={inputCls}
+          />
+        </div>
+        <div>
+          <Label>Subtítulo / descripción</Label>
+          <input
+            value={offer.subtitle}
+            onChange={(e) => save({ ...offer, subtitle: e.target.value })}
+            className={inputCls}
+          />
+        </div>
+        <div>
+          <Label>Texto del botón</Label>
+          <input
+            value={offer.cta}
+            onChange={(e) => save({ ...offer, cta: e.target.value })}
+            className={inputCls}
+          />
+        </div>
+        <div>
+          <Label>Enlace del botón</Label>
+          <input
+            value={offer.ctaTarget}
+            onChange={(e) => save({ ...offer, ctaTarget: e.target.value })}
+            className={inputCls}
+          />
+        </div>
+      </div>
+      <label className="mt-3 inline-flex items-center gap-2 text-sm">
+        <input
+          type="checkbox"
+          checked={offer.active}
+          onChange={(e) => save({ ...offer, active: e.target.checked })}
+          className="h-4 w-4 accent-[color:var(--color-primary)]"
+        />
+        Mostrar banner en el sitio
+      </label>
+    </div>
+  );
+}
+
 const inputCls =
   "mt-1 w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary";
 
