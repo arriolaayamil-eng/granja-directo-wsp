@@ -31,11 +31,11 @@ export function ProductCard({ product }: { product: Product }) {
             / {product.unit === "kg" ? "kg" : "unidad"}
           </span>
         </p>
-        <div className="mt-auto flex items-center gap-2">
-          <div className="flex items-center rounded-full border border-border">
+        <div className="mt-auto flex flex-col gap-2 sm:flex-row sm:items-center">
+          <div className="flex items-center justify-between rounded-full border border-border sm:justify-start">
             <button
               onClick={() => setQty((q) => Math.max(1, q - 1))}
-              className="grid h-10 w-10 place-items-center rounded-l-full hover:bg-muted"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-l-full hover:bg-muted"
               aria-label="Restar"
             >
               <Minus className="h-4 w-4" />
@@ -43,7 +43,7 @@ export function ProductCard({ product }: { product: Product }) {
             <span className="w-8 text-center font-semibold">{qty}</span>
             <button
               onClick={() => setQty((q) => q + 1)}
-              className="grid h-10 w-10 place-items-center rounded-r-full hover:bg-muted"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-r-full hover:bg-muted"
               aria-label="Sumar"
             >
               <Plus className="h-4 w-4" />
@@ -54,7 +54,7 @@ export function ProductCard({ product }: { product: Product }) {
               add(product, qty);
               setQty(1);
             }}
-            className="flex-1 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow transition hover:bg-primary/90 active:scale-95"
+            className="w-full rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow transition hover:bg-primary/90 active:scale-95 sm:flex-1"
           >
             + Agregar
           </button>

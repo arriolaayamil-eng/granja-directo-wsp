@@ -19,7 +19,18 @@ export function Navbar() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
         <a href="#top" className="flex items-center gap-2" aria-label="Granja La Unión">
-          <img src={logo.url} alt="Granja La Unión" className="h-12 w-auto object-contain sm:h-14" />
+          <img
+            src={logo.url}
+            alt="Granja La Unión"
+            className="h-12 w-auto object-contain sm:h-14"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+              e.currentTarget.nextElementSibling?.classList.remove("hidden");
+            }}
+          />
+          <span className="hidden font-display text-lg font-bold text-charcoal sm:text-xl">
+            Granja La Unión
+          </span>
         </a>
 
         <nav className="hidden gap-8 text-sm font-medium sm:flex">

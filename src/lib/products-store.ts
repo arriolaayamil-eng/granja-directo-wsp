@@ -11,6 +11,7 @@ import huevos from "@/assets/huevos.jpg.asset.json";
 import milanesaRellena from "@/assets/milanesaRellena.png.asset.json";
 import milanesaPata from "@/assets/milanesaPata.png.asset.json";
 import milanesaPechuga from "@/assets/milanesaPechuga.png.asset.json";
+import milanesaSemillas from "@/assets/milanesaSemillas.png.asset.json";
 import hamburguesas from "@/assets/hamburguesas.jpeg.asset.json";
 import bastoncitos from "@/assets/bastoncitos.jpg.asset.json";
 import arrollados from "@/assets/arrollados.jpeg.asset.json";
@@ -30,7 +31,7 @@ export interface Product {
   active: boolean;
 }
 
-const STORAGE_KEY = "granja-products-v3";
+const STORAGE_KEY = "granja-products-v4";
 const EVENT = "granja-products-changed";
 
 const DEFAULTS: Product[] = [
@@ -44,6 +45,7 @@ const DEFAULTS: Product[] = [
   { id: "nuggets", name: "Nuggets de pollo", price: "$XXXX", unit: "kg", category: "Preparados", image: nuggets.url, active: true },
   { id: "milanesa-pechuga", name: "Milanesa de pechuga", price: "$XXXX", unit: "kg", category: "Preparados", image: milanesaPechuga.url, active: true },
   { id: "milanesa-pata", name: "Milanesa de pata", price: "$XXXX", unit: "kg", category: "Preparados", image: milanesaPata.url, active: true },
+  { id: "milanesa-semillas", name: "Milanesa con semillas", price: "$XXXX", unit: "kg", category: "Preparados", image: milanesaSemillas.url, active: true },
   { id: "milanesa-rellena", name: "Milanesa rellena de jamón y queso", price: "$XXXX", unit: "unidad", category: "Preparados", image: milanesaRellena.url, active: true },
   { id: "pechugas-rebozadas", name: "Pechugas rebozadas", price: "$XXXX", unit: "kg", category: "Preparados", image: pechugasRebosadas.url, active: true },
   { id: "hamburguesas", name: "Hamburguesas de pollo", price: "$XXXX", unit: "unidad", category: "Preparados", image: hamburguesas.url, active: true },
