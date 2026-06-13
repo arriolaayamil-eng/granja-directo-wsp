@@ -8,6 +8,14 @@ import alitas from "@/assets/alitas.png.asset.json";
 import crispy from "@/assets/crispy.jpg.asset.json";
 import nuggets from "@/assets/nuggets.png.asset.json";
 import huevos from "@/assets/huevos.jpg.asset.json";
+import milanesaRellena from "@/assets/milanesaRellena.png.asset.json";
+import milanesaPata from "@/assets/milanesaPata.png.asset.json";
+import milanesaPechuga from "@/assets/milanesaPechuga.png.asset.json";
+import hamburguesas from "@/assets/hamburguesas.jpeg.asset.json";
+import bastoncitos from "@/assets/bastoncitos.jpg.asset.json";
+import arrollados from "@/assets/arrollados.jpeg.asset.json";
+import patitas from "@/assets/patitas.jpg.asset.json";
+import pechugasRebosadas from "@/assets/pechugasRebosadas.png.asset.json";
 
 export type ProductCategory = "Cortes" | "Preparados" | "Otros" | "Ofertas";
 export type ProductUnit = "kg" | "unidad" | "docena";
@@ -22,7 +30,7 @@ export interface Product {
   active: boolean;
 }
 
-const STORAGE_KEY = "granja-products-v2";
+const STORAGE_KEY = "granja-products-v3";
 const EVENT = "granja-products-changed";
 
 const DEFAULTS: Product[] = [
@@ -32,8 +40,16 @@ const DEFAULTS: Product[] = [
   { id: "pata-muslo", name: "Pata y muslo", price: "$XXXX", unit: "kg", category: "Cortes", image: pataMuslo.url, active: true },
   { id: "pata-deshuesada", name: "Pata deshuesada", price: "$XXXX", unit: "kg", category: "Cortes", image: pataDeshuesada.url, active: true },
   { id: "alitas", name: "Alitas", price: "$XXXX", unit: "kg", category: "Cortes", image: alitas.url, active: true },
-  { id: "milanesas", name: "Milanesas de pollo", price: "$XXXX", unit: "kg", category: "Preparados", image: crispy.url, active: true },
+  { id: "pollo-crispy", name: "Pollo crispy", price: "$XXXX", unit: "kg", category: "Preparados", image: crispy.url, active: true },
   { id: "nuggets", name: "Nuggets de pollo", price: "$XXXX", unit: "kg", category: "Preparados", image: nuggets.url, active: true },
+  { id: "milanesa-pechuga", name: "Milanesa de pechuga", price: "$XXXX", unit: "kg", category: "Preparados", image: milanesaPechuga.url, active: true },
+  { id: "milanesa-pata", name: "Milanesa de pata", price: "$XXXX", unit: "kg", category: "Preparados", image: milanesaPata.url, active: true },
+  { id: "milanesa-rellena", name: "Milanesa rellena de jamón y queso", price: "$XXXX", unit: "unidad", category: "Preparados", image: milanesaRellena.url, active: true },
+  { id: "pechugas-rebozadas", name: "Pechugas rebozadas", price: "$XXXX", unit: "kg", category: "Preparados", image: pechugasRebosadas.url, active: true },
+  { id: "hamburguesas", name: "Hamburguesas de pollo", price: "$XXXX", unit: "unidad", category: "Preparados", image: hamburguesas.url, active: true },
+  { id: "bastoncitos", name: "Bastoncitos de pollo", price: "$XXXX", unit: "kg", category: "Preparados", image: bastoncitos.url, active: true },
+  { id: "patitas", name: "Patitas de pollo (formitas)", price: "$XXXX", unit: "kg", category: "Preparados", image: patitas.url, active: true },
+  { id: "arrollado", name: "Arrollado de pollo relleno", price: "$XXXX", unit: "kg", category: "Preparados", image: arrollados.url, active: true },
   { id: "huevos", name: "Huevos frescos", price: "$XXXX", unit: "docena", category: "Otros", image: huevos.url, active: true },
 ];
 
