@@ -1,6 +1,6 @@
 import sharp from "sharp";
-import { mkdir, readFile, writeFile, access } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, join, isAbsolute } from "node:path";
 
 const RENDER = "C:/Users/Usr/Downloads/granja union/imagenes render";
 const ROOT = process.cwd();
@@ -28,17 +28,22 @@ const MAP = [
   { asset: "patitas.jpg", src: "patitas.jpg", out: "patitas" },
   { asset: "pechugasRebosadas.png", src: "pechugasRebosadas.png", out: "pechugasRebosadas" },
   { asset: "milanesaSemillas.png", src: "milanesaSemillas.png", out: "milanesaSemillas", isNew: true },
+  { asset: "logo.png", src: "C:/Users/Usr/Downloads/Untitled design (21).png", out: "logo", logo: true },
 ];
 
 await mkdir(OUT, { recursive: true });
 
 for (const m of MAP) {
-  const srcPath = join(RENDER, m.src);
+  const srcPath = isAbsolute(m.src) ? m.src : join(RENDER, m.src);
   const outPath = join(OUT, `${m.out}.webp`);
   const pipeline = sharp(srcPath).rotate();
   if (m.hero) {
     pipeline.resize({ width: 1920, height: 1080, fit: "cover", position: "centre" });
     await pipeline.webp({ quality: 82 }).toFile(outPath);
+  } else if (m.logo) {
+    // logo: preservar transparencia (alpha), no recortar
+    pipeline.resize({ width: 480, height: 480, fit: "inside", withoutEnlargement: true });
+    await pipeline.webp({ quality: 90, alphaQuality: 100 }).toFile(outPath);
   } else {
     pipeline.resize({ width: 900, height: 900, fit: "inside", withoutEnlargement: true });
     await pipeline.webp({ quality: 80 }).toFile(outPath);
